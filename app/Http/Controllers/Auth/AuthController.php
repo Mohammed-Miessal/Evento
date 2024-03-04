@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,7 +37,8 @@ class AuthController extends Controller
 
     public function register()
     {
-        return view('auth.register');       // GET
+        $roles = Role::all();
+        return view('auth.register', compact('roles'));       // GET
     }
 
     public function postRegister(Request $request)
@@ -45,6 +47,7 @@ class AuthController extends Controller
             'name' => 'required|min:8',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            'role_id' => 'required|integer|exists:roles,id'
         ]);
 
         $user = User::create([
@@ -54,7 +57,8 @@ class AuthController extends Controller
         ]);
 
         // Assign default role to the user
-        $user->role()->attach(1);
+        $user->role()->attach($request->role_id);
+        // $user->permissions()->sync([1, 2, 3, 4, 5]);
 
         auth()->login($user);
 
