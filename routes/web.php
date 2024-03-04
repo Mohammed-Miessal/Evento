@@ -29,3 +29,9 @@ Route::get('/logout', [AuthController::class , 'logout'])->name('logout');
 Route::group(['middleware' => 'role:Administrateur'], function() {
     //
  });
+
+
+ Route::get('/dashboard', function () {
+    return view('dashboard.index');
+});
+ 
