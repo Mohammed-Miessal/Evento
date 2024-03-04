@@ -12,7 +12,7 @@ class AuthController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth' , ['except' => ['login','register','postRegister','postLogin']]);
+        $this->middleware('auth', ['except' => ['login', 'register', 'postRegister', 'postLogin']]);
     }
 
     public function login()
@@ -27,7 +27,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if(!auth()->attempt($request->only('email', 'password'), $request->has('remember'))){
+        if (!auth()->attempt($request->only('email', 'password'), $request->has('remember'))) {
             return back()->with('error', 'Invalid email or password');
         }
 
@@ -44,7 +44,7 @@ class AuthController extends Controller
         $this->validate($request, [
             'name' => 'required|min:8',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
         ]);
 
         $user = User::create([
@@ -52,6 +52,9 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
+
+        // Assign default role to the user
+        $user->role()->attach(1);
 
         auth()->login($user);
 
@@ -63,5 +66,4 @@ class AuthController extends Controller
         auth()->logout();
         return redirect()->route('login');
     }
-
 }

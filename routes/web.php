@@ -24,3 +24,8 @@ Route::post('/login', [AuthController::class , 'postLogin'])->name('login');
 Route::get('/register', [AuthController::class , 'register'])->name('registerForm');
 Route::post('/register', [AuthController::class , 'postRegister'])->name('register');
 Route::get('/logout', [AuthController::class , 'logout'])->name('logout');
+
+
+Route::group(['middleware' => 'role:Administrateur'], function() {
+    //
+ });

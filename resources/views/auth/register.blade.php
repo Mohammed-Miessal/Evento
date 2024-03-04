@@ -10,8 +10,7 @@
 <body>
     <form action="{{ route('register') }}" method="post" class="mt-10">
         @csrf
-        
-        <input type="text" name="name" id="name" class="text-black bg-gray-500  ">
+        <input type="text" name="name" id="name" class="text-black bg-gray-500">
         <input type="email" name="email" id="email" class="text-black bg-gray-500">
         <input type="password" name="password" id="password" class="text-black bg-gray-500" >
         <button type="submit">Register</button>

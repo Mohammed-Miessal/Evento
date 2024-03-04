@@ -11,5 +11,14 @@
         <a href="{{ route('logout') }}">
         logout</a>
     </button>
+
+    @role('Utilisateur')
+    {{ __('You are Utilisateur') }}
+@endrole
+@role('Administrateur')
+    {{ __('You are Administrateur') }}
+@endrole
+
+
 </body>
 </html>
