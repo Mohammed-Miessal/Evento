@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home')->middleware('auth');
 
+Route::get('/1', function () {
+    return view('home');
+});
 
 Route::get('/login', [AuthController::class , 'login'])->name('loginForm');
 Route::post('/login', [AuthController::class , 'postLogin'])->name('login');
