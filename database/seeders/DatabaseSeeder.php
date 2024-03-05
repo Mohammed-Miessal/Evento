@@ -17,14 +17,28 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RoleSeeder::class);
         $this->call(PermissionSeeder::class);
-        // $this->call(CategorieSeeder::class);
+        //  $this->call(CategorieSeeder::class);
 
 
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $user = \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => bcrypt('123'),
+          
+        ]);
+
+        $user->role()->attach(3);
+
+        $user = \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'mohammedmiessal@gmail.com',
+            'password' => bcrypt('123'),
+          
+        ]);
+
+        $user->role()->attach(2);
+
     }
 }

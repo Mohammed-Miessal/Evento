@@ -12,5 +12,10 @@ class Categorie extends Model
     protected $fillable = ['name', 'image_path'];
 
 
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+    
     
 }

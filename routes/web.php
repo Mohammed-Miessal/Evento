@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CategorieController;
 
@@ -15,44 +16,13 @@ use App\Http\Controllers\CategorieController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home')->middleware('auth');
-
-Route::get('/1', function () {
-    return view('home');
+Route::group([], function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('loginForm');
+    Route::post('/login', [AuthController::class, 'postLogin'])->name('login');
+    Route::get('/register', [AuthController::class, 'register'])->name('registerForm');
+    Route::post('/register', [AuthController::class, 'postRegister'])->name('register');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-
-Route::get('/login', [AuthController::class, 'login'])->name('loginForm');
-Route::post('/login', [AuthController::class, 'postLogin'])->name('login');
-Route::get('/register', [AuthController::class, 'register'])->name('registerForm');
-Route::post('/register', [AuthController::class, 'postRegister'])->name('register');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-
-Route::group(['middleware' => 'role:Administrateur'], function () {
-    //
-});
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-});
-
-Route::get('/event/index', function () {
-    return view('dashboard.event.index');
-});
-
-
-
-Route::get('/event/add', function () {
-    return view('dashboard.event.add');
-});
-
-Route::get('/event/edit', function () {
-    return view('dashboard.event.edit');
-});
-
 
 
 
@@ -64,3 +34,52 @@ Route::prefix('categorie')->middleware(['auth', 'role:Administrateur'])->group(f
     Route::post('/edit/{categorie}', [CategorieController::class, 'update'])->name('categorie.update');
     Route::get('/delete/{categorie}', [CategorieController::class, 'destroy'])->name('categorie.delete');
 });
+
+
+
+Route::prefix('event')->middleware(['auth', 'role:Organisateur'])->group(function () {
+    Route::get('/index', [EventController::class, 'index'])->name('event.index');
+    Route::get('/add', [EventController::class, 'create'])->name('event.add');
+    Route::post('/add', [EventController::class, 'store'])->name('event.store');
+    Route::get('/edit/{event}', [EventController::class, 'edit'])->name('event.edit');
+    Route::post('/edit/{event}', [EventController::class, 'update'])->name('event.update');
+    Route::get('/delete/{event}', [EventController::class, 'destroy'])->name('event.delete');
+    Route::get('/show/{event}', [EventController::class, 'show'])->name('event.show');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('home')->middleware('auth');
+
+// Route::get('/1', function () {
+//     return view('home');
+// });
+
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard.index');
+// });
+
+// Route::get('/event/index', function () {
+//     return view('dashboard.event.index');
+// });
+
+// Route::get('/event/add', function () {
+//     return view('dashboard.event.add');
+// });
+
+// Route::get('/event/edit', function () {
+//     return view('dashboard.event.edit');
+// });
