@@ -38,3 +38,16 @@ Route::group(['middleware' => 'role:Administrateur'], function() {
     return view('dashboard.index');
 });
  
+Route::get('/event/index', function () {
+    return view('dashboard.event.index');
+});
+ 
+
+
+Route::get('/event/add', function () {
+    return view('dashboard.event.add');
+});
+
+Route::get('/event/edit', function () {
+    return view('dashboard.event.edit');
+});

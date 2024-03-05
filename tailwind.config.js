@@ -10,8 +10,10 @@ export default {
     extend: {
       fontFamily: {
         Pacifico: ['Pacifico', 'cursive'],
+        satoshi: ['Satoshi', 'sans-serif'],
       },
     },
+    
   },
   plugins: [],
 }
