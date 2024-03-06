@@ -51,7 +51,11 @@ Route::prefix('event')->middleware(['auth', 'role:Organisateur'])->group(functio
 
 
 
-
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('dashboard.index');
+    })->name('dashboard.index');
+});
 
 
 
