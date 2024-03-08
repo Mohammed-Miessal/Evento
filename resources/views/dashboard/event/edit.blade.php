@@ -96,6 +96,14 @@
                                     <small id="capacity-error" class="text-red-500"></small>
                                 </div>
 
+                                 {{-- available_places --}}
+                                 <div class="col-span-6 sm:col-span-3">
+                                    <label for="available_places" class="text-sm font-medium text-gray-900 block mb-2">Available Places</label>
+                                    <input type="number" name="available_places" id="available_places"
+                                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                                        placeholder="available_places">
+                                    <small id="available_places-error" class="text-red-500"></small>
+                                </div>
 
                                 {{-- Description --}}
                                 <div class="col-span-6 sm:col-span-3">

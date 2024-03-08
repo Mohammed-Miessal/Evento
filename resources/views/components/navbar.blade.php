@@ -19,8 +19,8 @@
         class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
         id="user-menu-button-2" aria-expanded="false" data-dropdown-toggle="dropdown-2">
         <span class="sr-only">Open user menu</span>
-        <img class="w-8 h-8 rounded-full"
-            src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo" />
+        <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+            alt="user photo" />
     </button>
 
     <!-- Dropdown -->
@@ -29,37 +29,33 @@
         <div class="px-4 py-3" role="none">
             <p class="text-sm text-gray-900 dark:text-white" role="none">
 
-                Name User
+                {{ Auth::user()->name }}
             </p>
             <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                Email User
+                {{ Auth::user()->email }}
             </p>
         </div>
         <ul class="py-1" role="none">
 
             <li>
-                <a href="home"
+                <a href="{{ route('index') }}"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                    role="menuitem">Wiki Home</a>
+                    role="menuitem"> Home</a>
             </li>
-            <?php
-
-            use App\Controller\Controller;
-
-            if ('User') { ?>
-            <li>
-                <a href="wiki"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                    role="menuitem">Dashboard</a>
-            </li>
-            <?php } else { ?>
 
             <li>
                 <a href="dashboard"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                     role="menuitem">Dashboard</a>
             </li>
-            <?php  } ?>
+
+
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                    role="menuitem">Profile</a>
+            </li>
+
             <li>
                 <a href="#"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -71,17 +67,15 @@
                     role="menuitem">Earnings</a>
             </li>
             <li>
-                <form action="login/logout" method="POST">
 
-                    <div class="flex justify-center">
-                        <button name="logout"
-                            class="inline-flex items-center justify-center bg-gray-100 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 dark:text-gray-400 dark:focus:ring-gray-700 dark:bg-gray-700 mx-auto">
-                            <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                role="menuitem">Log out</a>
-                        </button>
-                    </div>
-
-                </form>
+                <div class="flex justify-center">
+                    <button name="logout"
+                        class="inline-flex items-center justify-center bg-gray-100 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 dark:text-gray-400 dark:focus:ring-gray-700 dark:bg-gray-700 mx-auto">
+                        <a href="{{ route('logout') }}"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                            role="menuitem">Log out</a>
+                    </button>
+                </div>
 
             </li>
         </ul>

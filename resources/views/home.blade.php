@@ -14,89 +14,8 @@
 
 <body>
 
-    <!-- navbar -->
-    <header class="absolute inset-x-0 top-0 z-50 py-6">
-        <div class="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5">
-            <nav class="w-full flex justify-between gap-6 relative">
-                <!-- logo -->
-                <div class="min-w-max inline-flex relative">
-                    <a href="/" class="relative flex items-center gap-3">
-                        <img class="h-10 w-auto" src="{{ asset('assets/images/Logo.png') }}" alt="Logo image" />
-                    </a>
-                </div>
+    @include('components.navhome')
 
-                <div data-nav-overlay aria-hidden="true"
-                    class="fixed hidden inset-0 lg:!hidden bg-gray-800/60 bg-opacity-50 backdrop-filter backdrop-blur-xl">
-                </div>
-                <div data-navbar
-                    class="flex invisible opacity-0  translate-y-10 overflow-hidden lg:visible lg:opacity-100  lg:-translate-y-0 lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-white lg:!bg-transparent border-x border-x-gray-100 lg:border-x-0">
-                    <ul
-                        class="border-t border-gray-100  lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-gray-700 w-full lg:justify-center lg:items-center">
-                        <li>
-                            <a href="#" class="duration-300 font-medium ease-linear hover:text-blue-600 py-3">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="duration-300 font-medium ease-linear hover:text-blue-600 py-3">
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="duration-300 font-medium ease-linear hover:text-blue-600 py-3">
-                                About us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="duration-300 font-medium ease-linear hover:text-blue-600 py-3">
-                                Features
-                            </a>
-                        </li>
-                    </ul>
-
-                    <div
-                        class="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-gray-100   lg:border-0 px-6 lg:px-0">
-                        {{-- <a href="#"
-                            class="flex justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear
-            after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-[#172554] hover:after:opacity-100 hover:after:scale-[2.5] bg-blue-600 border-transparent hover:border-[#172554]">
-                            <span class="relative z-10 text-white">
-                                Get Started
-                            </span>
-                        </a> --}}
-                        <button
-                            class=" bg-gradient-to-br from-indigo-600 from-20% via-blue-600 via-30% to-pink-600 flex text-white justify-center items-center w-max min-w-max sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear
-                        after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-[#172554] hover:after:opacity-100 hover:after:scale-[2.5] bg-blue-600 border-transparent hover:border-[#172554]">
-                            <span class="hidden sm:flex relative z-[5]">
-                                Login
-                            </span>
-                            <span class="flex sm:hidden relative z-[5]">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                                </svg>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-
-                <div class="min-w-max flex items-center gap-x-3">
-
-                    <button data-toggle-navbar data-is-open="false"
-                        class="lg:hidden lg:invisible outline-none w-7 h-auto flex flex-col relative">
-                        <span id="line-1"
-                            class="w-6 h-0.5 rounded-full bg-gray-700 transition-all duration-300 ease-linear"></span>
-                        <span id="line-2"
-                            class="w-6 origin-center  mt-1 h-0.5 rounded-ful bg-gray-700 transition-all duration-300 ease-linear"></span>
-                        <span id="line-3"
-                            class="w-6 mt-1 h-0.5 rounded-ful bg-gray-700 transition-all duration-300 ease-linear"></span>
-                        <span class="sr-only">togglenav</span>
-                    </button>
-                </div>
-            </nav>
-        </div>
-    </header>
 
     <!-- hero section -->
     <section class="relative py-32 lg:py-36 bg-white">
@@ -170,103 +89,25 @@
     {{-- Categories --}}
     <div class="flex flex-wrap justify-center mt-10">
 
-
-        <!-- card 1 -->
-        <div class="p-4 max-w-[15rem]">
-            <div
-                class="flex rounded-lg h-fit  dark:bg-gray-800 bg-gradient-to-br from-indigo-600 from-20% via-blue-600 via-30% to-pink-600 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                    <div
-                        class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-white flex-shrink-0">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                        </svg>
+        @foreach ($categories as $categorie)
+            <!-- card 1 -->
+            <div class="p-4 max-w-[15rem]">
+                <div
+                    class="flex rounded-lg h-fit  dark:bg-gray-800 bg-gradient-to-br from-indigo-600 from-20% via-blue-600 via-30% to-pink-600 p-8 flex-col">
+                    <div class="flex items-center mb-3">
+                        <div
+                            class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-white flex-shrink-0">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-white dark:text-white text-lg font-medium"> {{ $categorie->name }}</h2>
                     </div>
-                    <h2 class="text-white dark:text-white text-lg font-medium">Feature 1</h2>
-                </div>
 
-            </div>
-        </div>
-
-        <!-- card 2 -->
-        <div class="p-4 max-w-[15rem]">
-            <div
-                class="flex rounded-lg h-fit dark:bg-gray-800 bg-gradient-to-br from-indigo-600 from-20% via-blue-600 via-30% to-pink-600 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                    <div
-                        class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-white flex-shrink-0">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                        </svg>
-                    </div>
-                    <h2 class="text-white dark:text-white text-lg font-medium">Feature 2</h2>
                 </div>
             </div>
-        </div>
-
-        <!-- card 3 -->
-        <div class="p-4 max-w-[15rem]">
-            <div
-                class="flex rounded-lg h-fit dark:bg-gray-800 bg-gradient-to-br from-indigo-600 from-20% via-blue-600 via-30% to-pink-600 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                    <div
-                        class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-white flex-shrink-0">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                        </svg>
-                    </div>
-                    <h2 class="text-white dark:text-white text-lg font-medium">Feature 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- card 3 -->
-        <div class="p-4 max-w-[15rem]">
-            <div
-                class="flex rounded-lg h-fit dark:bg-gray-800 bg-gradient-to-br from-indigo-600 from-20% via-blue-600 via-30% to-pink-600 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                    <div
-                        class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-white flex-shrink-0">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                        </svg>
-                    </div>
-                    <h2 class="text-white dark:text-white text-lg font-medium">Feature 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- card 3 -->
-        <div class="p-4 max-w-[15rem]">
-            <div
-                class="flex rounded-lg h-fit dark:bg-gray-800 bg-gradient-to-br from-indigo-600 from-20% via-blue-600 via-30% to-pink-600 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                    <div
-                        class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-white flex-shrink-0">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                        </svg>
-                    </div>
-                    <h2 class="text-white dark:text-white text-lg font-medium">Feature 3</h2>
-                </div>
-                {{-- <div class="flex flex-col justify-between flex-grow">
-                    <p class="leading-relaxed text-base text-white dark:text-gray-300">
-                        Lorem ipsum dolor sit amet. In quos laboriosam non neque eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum inventore et maxime amet.
-                    </p>
-                    <a href="#" class="mt-3 text-black dark:text-white hover:text-blue-600 inline-flex items-center">Learn More
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div> --}}
-            </div>
-        </div>
+        @endforeach
 
 
     </div>
@@ -313,72 +154,67 @@
                 </svg>
                 <a href="#" class="font-semibold inline-block">ALL EVENTS</a>
             </div>
-            <a href="#">See All</a>
+            <a href="{{ route('allEvents') }}">See All</a>
         </div>
 
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
 
-            <!-- CARD 1 -->
-            <div class="rounded overflow-hidden shadow-lg flex flex-col">
-                <a href="#"></a>
-                <div class="relative"><a href="#">
-                        <img class="w-full"
-                            src="https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"
-                            alt="Sunset in the mountains">
-                        <div
-                            class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
-                        </div>
-                    </a>
-                    {{-- <a href="#!">
-                        <div
-                            class="text-xs absolute top-0 right-0 bg-indigo-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
-                            Cooking
-                        </div>
-                    </a> --}}
-                </div>
-                <div class="px-6 py-4 mb-auto">
-                    <a href="#"
-                        class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">Simplest
-                        Salad Recipe ever</a>
-                    <p class="text-gray-500 text-sm">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                </div>
-                <div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
-                    <span href="#"
-                        class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
-                        <svg height="13px" width="13px" version="1.1" id="Layer_1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                            y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
-                            xml:space="preserve">
-                            <g>
+            @foreach ($events as $event)
+                <!-- CARD 1 -->
+                <div class="rounded overflow-hidden shadow-lg flex flex-col">
+                    <a href="#"></a>
+                    <div class="relative"><a href="#">
+                            <img class="w-full" {{-- src="https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" --}} src="{{ asset('storage/' . $event->image_path) }}"
+                                alt="Sunset in the mountains">
+                            <div
+                                class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="px-6 py-4 mb-auto">
+                        <a href="{{ route('eventDetails' , $event->id) }}"
+                            class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">Simplest
+                            {{ $event->title }}</a>
+                        <p class="text-gray-500 text-sm">
+                            {{ $event->description }}
+                        </p>
+                    </div>
+                    <div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
+                        <span href="#"
+                            class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+                            <svg height="13px" width="13px" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                                xml:space="preserve">
                                 <g>
-                                    <path
-                                        d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256 c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128 c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z">
-                                    </path>
+                                    <g>
+                                        <path
+                                            d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256 c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128 c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z">
+                                        </path>
+                                    </g>
                                 </g>
-                            </g>
-                        </svg>
-                        <span class="ml-1">6 mins ago</span>
-                    </span>
+                            </svg>
+                            <span class="ml-1">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y H:i') }}</span>
 
-                    <span href="#"
-                        class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
-                        <svg class="h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
-                            </path>
-                        </svg>
-                        <span class="ml-1">39 tickets left</span>
-                    </span>
+                        </span>
+
+                        <span href="#"
+                            class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0a3 3 0 005-2.618A4.978 4.978 0 0017 15m-5 5a3 3 0 01-5-2.618A4.978 4.978 0 0112 15m5 5h5m-5-5a3 3 0 00-3-3H7a3 3 0 00-3 3v2a3 3 0 005 2.618M7 17h.01M7 17a3 3 0 005 2.618M7 17a3 3 0 01-5-2.618A4.978 4.978 0 017 12m5 5h5">
+                                </path>
+                            </svg>
+                            <span class="ml-1">{{ $event->capacity }}</span>
+                        </span>
+                    </div>
                 </div>
-            </div>
-
-
+            @endforeach
 
             <!-- CARD 2 -->
-            <div class="rounded overflow-hidden shadow-lg flex flex-col">
+            {{-- <div class="rounded overflow-hidden shadow-lg flex flex-col">
                 <a href="#"></a>
                 <div class="relative"><a href="#">
                         <img class="w-full"
@@ -425,12 +261,12 @@
                         <span class="ml-1">0 ticket left</span>
                     </span>
                 </div>
-            </div>
+            </div> --}}
 
 
 
             <!-- CARD 3 -->
-            <div class="rounded overflow-hidden shadow-lg flex flex-col">
+            {{-- <div class="rounded overflow-hidden shadow-lg flex flex-col">
                 <a href="#"></a>
                 <div class="relative"><a href="#">
                         <img class="w-full"
@@ -477,7 +313,7 @@
                         <span class="ml-1">9 tickets left</span>
                     </span>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
 
@@ -487,89 +323,7 @@
 
 
 
-    {{-- Footer --}}
-    <div class="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-10 border-t">
-        <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="sm:col-span-2">
-            <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
-                <img class="h-10 w-auto" src="{{ asset('assets/images/Logo.png') }}" alt="Logo image" />
-            
-            </a>
-            {{-- <div class="mt-6 lg:max-w-sm">
-              <p class="text-sm text-gray-800">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
-              </p>
-              <p class="mt-4 text-sm text-gray-800">
-                Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-              </p>
-            </div> --}}
-          </div>
-          <div class="space-y-2 text-sm">
-            {{-- <p class="text-base font-bold tracking-wide text-gray-900">Contacts</p>
-            <div class="flex">
-              <p class="mr-1 text-gray-800">Phone:</p>
-              <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">850-123-5021</a>
-            </div>
-            <div class="flex">
-              <p class="mr-1 text-gray-800">Email:</p>
-              <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">info@lorem.mail</a>
-            </div>
-            <div class="flex">
-              <p class="mr-1 text-gray-800">Address:</p>
-              <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" aria-label="Our address" title="Our address" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">
-                312 Lovely Street, NY
-              </a>
-            </div> --}}
-          </div>
-          <div>
-            <span class="text-base font-bold tracking-wide text-gray-900">Social</span>
-            <div class="flex items-center mt-1 space-x-3">
-              <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
-                  <path
-                    d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"
-                  ></path>
-                </svg>
-              </a>
-              <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
-                <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
-                  <circle cx="15" cy="15" r="4"></circle>
-                  <path
-                    d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z"
-                  ></path>
-                </svg>
-              </a>
-              <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
-                  <path
-                    d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-            {{-- <p class="mt-4 text-sm text-gray-500">
-              Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken spare ribs salami.
-            </p> --}}
-          </div>
-        </div>
-        <div class="flex flex-col-reverse justify-between pt-5 pb-10  lg:flex-row">
-          <p class="text-sm text-gray-600">
-            © Copyright 2020 Lorem Inc. All rights reserved.
-          </p>
-          <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
-            <li>
-              <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">F.A.Q</a>
-            </li>
-            <li>
-              <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Terms &amp; Conditions</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {{-- Footer --}}
+    @include('components.footer')
     <script src="{{ asset('assets/js/home.js') }}"></script>
 </body>
 

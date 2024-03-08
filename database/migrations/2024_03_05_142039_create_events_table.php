@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('location');
             $table->enum('status', ['pending', 'published', 'unpublished'])->default('pending');
             $table->integer('capacity');
+            $table->integer('available_places');
+            $table->enum('type_reservation', ['auto', 'manuel'])->default('auto');
 
             $table->foreignId('categorie_id')->constrained('categories');
             $table->foreignId('organisateur_id')->constrained('users');
