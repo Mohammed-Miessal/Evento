@@ -11,7 +11,7 @@ use App\Traits\HasPermissionsTrait;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable , HasPermissionsTrait;
+    use HasApiTokens, HasFactory, Notifiable, HasPermissionsTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -59,5 +59,21 @@ class User extends Authenticatable
     {
         return $this->hasMany(Event::class);
     }
- 
+
+    public function hasRole($role)
+    {
+        return $this->roles()->where('name', $role)->exists();
+    }
+
+
+    // User.php (assuming you have a Booking model with a user_id and event_id)
+    public function hasBookedEvent(Event $event)
+    {
+        return $this->bookings()->where('event_id', $event->id)->exists();
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }

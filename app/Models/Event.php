@@ -10,7 +10,7 @@ class Event extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['title', 'image_path', 'date', 'description', 'location', 'price', 'status', 'categorie_id', 'organisateur_id', 'capacity'];
+    protected $fillable = ['title', 'image_path', 'date', 'description', 'location', 'price', 'status', 'categorie_id', 'organisateur_id', 'capacity' , 'available_places'];
 
 
     public function categorie()
@@ -21,5 +21,10 @@ class Event extends Model
     public function organisateur()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

@@ -11,12 +11,19 @@ use App\Http\Requests\UpdateEventRequest;
 
 class EventController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('role:Organisateur')->only(['create', 'store', 'edit', 'update', 'destroy']);
+        $this->middleware('role:Administrateur')->only(['admin']);
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::where('organisateur_id', auth()->user()->id)->get();
         // dd($events);
         return view('dashboard.event.index', compact('events'));
     }
@@ -53,6 +60,9 @@ class EventController extends Controller
             'capacity' => $validatedData['capacity'],
             'categorie_id' => $validatedData['categorie_id'],
             'organisateur_id' => Auth::id(),
+            'available_places' => $validatedData['available_places'],
+            'type_reservation' => $validatedData['type_reservation'],
+            
         ]);
 
         // dd($event);
@@ -106,6 +116,8 @@ class EventController extends Controller
             'capacity' => $validatedData['capacity'],
             'categorie_id' => $validatedData['categorie_id'],
             'organisateur_id' => Auth::id(),
+            'available_places' => $validatedData['available_places'],
+            'type_reservation' => $validatedData['type_reservation'],
         ]);
 
         return redirect()->route('event.index');
@@ -119,5 +131,11 @@ class EventController extends Controller
         Storage::disk('public')->delete($event->image_path);
         $event->delete();
         return redirect()->route('event.index');
+    }
+
+    public function admin()
+    {
+        $events = Event::where('status', 'pending')->get();
+        return view('dashboard.event.admin' , compact('events'));
     }
 }

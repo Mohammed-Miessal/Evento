@@ -18,6 +18,9 @@ class AuthController extends Controller
 
     public function login()
     {
+        if (auth()->check()) {
+            return redirect()->route('dashboard.index');
+        }
         return view('auth.login');          // GET
     }
 
@@ -32,7 +35,7 @@ class AuthController extends Controller
             return back()->with('error', 'Invalid email or password');
         }
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard.index');
     }
 
     public function register()

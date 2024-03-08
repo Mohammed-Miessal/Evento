@@ -37,31 +37,28 @@ trait HasPermissionsTrait
 
     public function hasPermissionThroughRole($permission)
     {
-        foreach($permission->roles as $role) {
+        foreach ($permission->roles as $role) {
             if ($this->roles->contains($role)) {
                 return true;
             }
         }
         return false;
     }
-
     public function hasRole(...$roles)
     {
-        foreach($roles as $role) {
-            if ($this->role->contains('name', $role)) {
-                return true;
-            }
-        }
-        return false;
+        $userRoles = $this->roles()->pluck('name')->all();
+        return count(array_intersect($roles, $userRoles)) > 0;
     }
+
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class, 'users_roles');
+        return $this->belongsToMany(Role::class, 'role_user');
     }
+
     public function permissions()
     {
-        return $this->belongsToMany(Permission::class, 'users_permissions');
+        return $this->belongsToMany(Permission::class, 'permission_user');
     }
     protected function hasPermission($permission)
     {

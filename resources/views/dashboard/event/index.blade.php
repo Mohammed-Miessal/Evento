@@ -51,6 +51,8 @@
                                     <th scope="col" class="px-4 py-3">Categorie</th>
                                     <th scope="col" class="px-4 py-3">Status</th>
                                     <th scope="col" class="px-4 py-3">Capacity</th>
+                                    <th scope="col" class="px-4 py-3">Availble Places</th>
+
                                     <th scope="col" class="px-4 py-3  text-gray-400">Actions</th>
 
                                 </tr>
@@ -73,6 +75,8 @@
                                         <td class="px-4 py-3 text-center">{{ $event->status }} </td>
 
                                         <td class="px-4 py-3 text-center">{{ $event->capacity }} </td>
+
+                                        <td class="px-4 py-3 text-center">{{ $event->available_places }} </td>
 
 
                                         <td class="px-4 py-3 text-center  overflow-visible">

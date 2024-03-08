@@ -29,7 +29,9 @@ class UpdateEventRequest extends FormRequest
             'location' => ['required', 'string', 'max:40'],
             'price' => ['required', 'numeric'],
             'capacity' => ['required', 'numeric'],
-            'categorie_id' => ['required' , 'exists:categories,id']
+            'categorie_id' => ['required' , 'exists:categories,id'],
+            'available_places' => ['required', 'numeric'],
+
         ];
     }
 }

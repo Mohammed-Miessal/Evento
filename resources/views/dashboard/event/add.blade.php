@@ -87,14 +87,47 @@
 
                                 {{-- Capacity --}}
                                 <div class="col-span-6 sm:col-span-3">
-                                    <label for="capacity" class="text-sm font-medium text-gray-900 block mb-2">Capacity</label>
+                                    <label for="capacity"
+                                        class="text-sm font-medium text-gray-900 block mb-2">Capacity</label>
                                     <input type="number" name="capacity" id="capacity"
                                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                         placeholder="capacity">
                                     <small id="capacity-error" class="text-red-500"></small>
                                 </div>
 
-                                
+
+                                {{-- available_places --}}
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="available_places"
+                                        class="text-sm font-medium text-gray-900 block mb-2">Available Places</label>
+                                    <input type="number" name="available_places" id="available_places"
+                                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                                        placeholder="available_places">
+                                    <small id="available_places-error" class="text-red-500"></small>
+                                </div>
+
+                                {{-- type_reservation --}}
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="available_places" class="text-sm font-medium text-gray-900 block mb-2">Type
+                                        de reservation</label>
+                                    {{-- Auto --}}
+                                    <div class="flex items-center me-4">
+                                        <input id="red-radio" type="radio" name="type_reservation" value="auto"
+                                            class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300  dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="red-radio"
+                                            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Auto</label>
+                                    </div>
+
+                                    {{-- Manuel --}}
+                                    <div class="flex items-center me-4">
+                                        <input id="red-radio" type="radio" name="type_reservation" value="manuel"
+                                            class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300  dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="red-radio"
+                                            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Manuel</label>
+                                    </div>
+                                </div>
+
+
                                 {{-- Description --}}
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="description"
